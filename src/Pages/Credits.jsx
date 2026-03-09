@@ -11,7 +11,7 @@ const Credits = () => {
  useEffect(()=>{
     fetchPlans()
  },[]);
- if(loading) return <loading/>
+ if(loading) return <Loading/>
   return (
     <div className='max-w-7xl h-screen overflow-y-scroll mx-auto px-4 sm:px-4 lg:px-8 py-12'>
      <h2 className='text-3xl font-semibold text-center mb-10 xl:mt-30 text-gray-800 dark:text-white'>Credit Plans</h2>
@@ -23,9 +23,8 @@ const Credits = () => {
             <p className='text-2xl  font-bold text-purple-600 dark:text-purple-300 mb-4'>${plan.price}<span className='text-base font-normal text-gray-600 dark:text-purple-200'>{" "} / {plan.credits} Credits</span>
             </p>
             <ul className='list-disc list-inside text-sm text-gray-700 dark:text-purple-200 space-y-1'>
-              {plan.features.map((features,index)=>(
-                <li key={index}>{features}</li>
-              ))}
+              {plan.features.map((feature,index)=>(
+                <li key={index}>{feature}</li>))}
             </ul>
           </div>
           <button className='mt-6 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white font-medium py-2 rounded transition-colors cursor-pointer'>Buy Now</button>
