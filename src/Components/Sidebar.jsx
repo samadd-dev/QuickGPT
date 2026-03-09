@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
 import {useAppContext} from '../Context/AppContext.jsx'
 import { assets } from '../assets/assets.js';
-import moment from 'moment'
+import moment from 'moment';
 const Sidebar = ({isMenuOpen,setIsMenuOpen}) => {
  
   const {chats,setSelectedChat,theme,setTheme,user,navigate}=useAppContext();
   const [search,setSearch]=useState('');
   return (
-    <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-linear-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-md:absolute left-0 z-1 ${!isMenuOpen && 'max-md:-translate-x-full'}`}>
+    <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-linear-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-md:absolute left-0 z-10 ${!isMenuOpen && 'max-md:-translate-x-full'}`}>
       {/*Logo*/}
       <img src={theme==='dark'? assets.logo_full: assets.logo_full_dark} alt="Logo"  className='w-full max-w-48'/>
       {/* New Chat Button */}
@@ -28,7 +28,7 @@ const Sidebar = ({isMenuOpen,setIsMenuOpen}) => {
              key={chat._id} className='p-2 px-4 dark:bg-[#57317C]/10 border border-grey-400 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group'>
               <div>
                 <p className='truncate w-full'>{chat.messages.length > 0 ?chat.messages[0].content.slice(0,32) : chat.name}</p>
-                <p className='text-xs text-gray-500 dark:text-[#B1AC0]'>{moment(chat.updatedAt).fromNow()}</p>
+                <p className='text-xs text-gray-500 dark:text-[#B1BAC0]'>{moment(chat.updatedAt).fromNow()}</p>
               </div>
               <img src={assets.bin_icon} className='hidden group-hover:block w-4 cursor-pointer not-dark:invert' alt="" />
             </div>
